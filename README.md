@@ -39,7 +39,7 @@
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
-    <td colspan="4" align="center" style="border: none !important;"><strong>Qwen3</strong></td>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3</strong></td>
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
@@ -59,20 +59,17 @@
     <td colspan="4" align="center" style="border: none !important;"><strong>Gemma4</strong></td>
   </tr>
   <tr>
-    <td valign="top" width="25%" style="border: none !important;">
-      • <a href="./01-Deploy/models/Gemma4/env-prepare-ubuntu24-rocm7.md">环境准备</a><br>
-      • <a href="./01-Deploy/models/Gemma4/Ubuntu24.04-rocm7-infer-deploy.md">推理部署总览</a><br>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Qwen3/env-prepare-ubuntu24-rocm7.md">环境准备</a><br>
+      • <a href="./01-Deploy/models/Qwen3/Ubuntu24.04-rocm7-infer-deploy.md">推理部署总览</a><br>
+      • <a href="./01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
+      • <a href="./01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM部署</a><br>
+       • <a href="./01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama部署</a><br>
+      • <a href="./01-Deploy/models/Qwen3/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
     </td>
-    <td valign="top" width="25%" style="border: none !important;">
-      • <a href="./01-Deploy/models/Gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="./01-Deploy/models/Gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
-    </td>
-    <td valign="top" width="25%" style="border: none !important;">
-      • <a href="./01-Deploy/models/Gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="./01-Deploy/models/Gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
-    </td>
-    <td valign="top" width="25%" style="border: none !important;">
-      &nbsp;
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./02-Fine-tune/models/Qwen3/01-Qwen3-0.6B-LoRA及SwanLab可视化记录.md">Qwen3-0.6B LoRA微调</a><br>
+      • <a href="./02-Fine-tune/models/Qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA微调</a><br>
     </td>
   </tr>
 </table>
