@@ -164,7 +164,7 @@ ollama serve
 - **自定义**：支持添加任意GGUF格式的自定义模型
 - **本地模型**：管理已下载的模型，支持启动、停止、聊天测试等操作
 
-![picture7-1](./AMD395×HelloAgents实战：智能旅行规划助手/picture7-1.png)
+![picture7-1](../assets/picture7-1.png)
 
 <div align="center">
   <p>图 1 智玲同学模型管理主界面（玲珑工作站）</p>
@@ -182,7 +182,7 @@ ollama serve
 
 在"对话"选项卡中输入"你是什么模型"测试对话功能。
 
-![picture7-2](./AMD395×HelloAgents实战：智能旅行规划助手/picture7-2.png)
+![picture7-2](../assets/picture7-2.png)
 
 <div align="center">
   <p>图 2 模型下载和启动流程（玲珑工作站）</p>

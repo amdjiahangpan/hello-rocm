@@ -55,7 +55,7 @@ python -m pip install --upgrade pip
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 安装 HelloAgents 和相关依赖
-pip install hello-agents requests python-dotenv
+pip install hello-agents requests python-dotenv uv
 ```
 
 ### 1.2 获取高德地图 API Key
@@ -127,34 +127,25 @@ ollama serve
 3. 一键启动本地服务
 4. 记录服务端点地址
 
-## Step 3: 配置 MCP 服务器
+## Step 3: 配置高德地图 API Key
 
-MCP (Model Context Protocol) 是一种让 AI 能够调用外部服务的标准协议。我们需要配置高德地图 MCP 服务器。
+当前示例通过 `uvx amap-mcp-server` 直接拉起 MCP 服务，因此不需要额外创建 `mcp_config.json`，也不需要单独维护 `mcp_amap_server.py`。
 
-### 3.1 创建配置文件
+### 3.1 安装 uv
 
-创建 `.env` 文件，填入你的高德地图 API Key：
-
-```env
-AMAP_API_KEY=your_amap_api_key_here
+```shell
+pip install uv
 ```
 
-### 3.2 配置 MCP 服务器
+### 3.2 配置 API Key
 
-创建 `mcp_config.json` 文件：
+你可以任选一种方式：
 
-```json
-{
-  "mcpServers": {
-    "amap": {
-      "command": "python",
-      "args": ["mcp_amap_server.py"],
-      "env": {
-        "AMAP_API_KEY": "${AMAP_API_KEY}"
-      }
-    }
-  }
-}
+1. 直接编辑 `travel_planner_mcp.py` 里的 `amap_api_key`
+2. 或者将脚本中的 `amap_api_key` 置空，再通过环境变量注入
+
+```shell
+setx AMAP_MAPS_API_KEY "your_amap_api_key_here"
 ```
 
 ## Step 4: 运行智能旅行规划助手
@@ -166,22 +157,22 @@ AMAP_API_KEY=your_amap_api_key_here
 git clone https://github.com/datawhalechina/hello-rocm.git
 
 # 进入项目目录
-cd hello-rocm/05-AMD-YES/05-hello-agents/智能旅行规划助手简易实战
+cd hello-rocm/05-AMD-YES/05-hello-agents/smart-travel-planner
 ```
 
 ### 4.2 配置模型端点
 
-编辑 `travel_planner_mcp.py`，修改模型配置：
+编辑 `travel_planner_mcp.py`，修改 `HelloAgentsLLM(...)` 中的模型配置：
 
 ```python
-# 如果使用 Ollama
-model_name = "qwen2.5:32b"
-base_url = "http://localhost:11434"
-
-# 如果使用 LM Studio
-model_name = "qwen2.5-32b"
-base_url = "http://127.0.0.1:1234/v1"
+self.llm = HelloAgentsLLM(
+    model="Qwen3-30B-2507-instruct",
+    base_url="http://127.0.0.1:1234/v1",
+    api_key="amd395"
+)
 ```
+
+如果你使用的是其他本地模型端点，只需要把 `model` 和 `base_url` 改成自己的配置即可。
 
 ### 4.3 运行助手
 
@@ -191,13 +182,15 @@ python travel_planner_mcp.py
 
 ### 4.4 使用示例
 
-运行后，按照提示输入旅行信息：
+当前示例脚本默认会直接生成一份“杭州 3 日游”规划；如果你想换成自己的城市和预算，请修改 `main()` 里的参数：
 
-```
-请输入目的地城市：杭州
-请输入旅行天数：3
-请输入预算（元）：3000
-请输入旅行偏好（如：文化、美食、自然风光）：文化、美食
+```python
+result = planner.plan_travel(
+    destination="杭州",
+    days=3,
+    budget=3000,
+    preferences="自然风光和历史文化"
+)
 ```
 
 AI 助手会自动：
@@ -208,7 +201,7 @@ AI 助手会自动：
 
 ## Step 5: 查看生成的旅行计划
 
-生成的旅行计划会保存为 Markdown 文件，例如 `杭州_3日游_MCP.md`。
+生成的旅行计划会保存为 Markdown 文件，文件名会随目的地变化，例如 `杭州_3日游_MCP.md`。仓库中还提供了中英文两个示例输出，位于 `smart-travel-planner/examples/` 目录。
 
 文件包含：
 - 📅 每日详细行程安排
@@ -221,13 +214,18 @@ AI 助手会自动：
 ## 项目结构
 
 ```
-智能旅行规划助手简易实战/
-├── travel_planner_mcp.py          # 主程序
-├── mcp_amap_server.py             # 高德地图 MCP 服务器
-├── mcp_config.json                # MCP 配置文件
-├── .env                           # 环境变量（API Key）
-├── 杭州_3日游_MCP.md              # 示例输出
-└── AMD395×HelloAgents实战：智能旅行规划助手.md  # 详细教程
+smart-travel-planner/
+├── assets/
+│   ├── picture7-1.png
+│   └── picture7-2.png
+├── docs/
+│   ├── amd395-helloagents-smart-travel-planner-en.md
+│   ├── amd395-helloagents-smart-travel-planner-zh.md
+│   └── amd395-helloagents-smart-travel-planner-zh.pdf
+├── examples/
+│   ├── hangzhou-3-day-mcp.md
+│   └── 杭州_3日游_MCP.md
+└── travel_planner_mcp.py
 ```
 
 ## 常见问题
@@ -247,8 +245,8 @@ AI 助手会自动：
 ### Q3: 如何更换其他地图服务？
 
 - 可以替换为百度地图、腾讯地图等
-- 修改 `mcp_amap_server.py` 中的 API 调用逻辑
-- 更新 MCP 配置文件
+- 修改 `travel_planner_mcp.py` 中 `MCPTool(...)` 的服务配置
+- 替换相应地图服务的 API Key 和查询参数
 
 ## 进阶扩展
 
@@ -264,7 +262,8 @@ AI 助手会自动：
 - [MCP 协议规范](https://modelcontextprotocol.io/)
 - [高德地图 API 文档](https://lbs.amap.com/api/)
 - [AMD ROCm 文档](https://rocm.docs.amd.com/)
-- [详细教程](./智能旅行规划助手简易实战/AMD395×HelloAgents实战：智能旅行规划助手.md)
+- [中文详细教程](./smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-zh.md)
+- [English Tutorial](./smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-en.md)
 
 ---
 

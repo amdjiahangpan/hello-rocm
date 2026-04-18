@@ -55,7 +55,7 @@ python -m pip install --upgrade pip
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Install HelloAgents and related dependencies
-pip install hello-agents requests python-dotenv
+pip install hello-agents requests python-dotenv uv
 ```
 
 ### 1.2 Obtain Amap API Key
@@ -127,34 +127,25 @@ If you are using a Linglong AI Workstation:
 3. Start the local service with one click
 4. Record the service endpoint address
 
-## Step 3: Configure MCP Server
+## Step 3: Configure the AMap API Key
 
-MCP (Model Context Protocol) is a standard protocol that allows AI to call external services. We need to configure the Amap MCP server.
+This example launches the MCP service directly with `uvx amap-mcp-server`, so you do not need a separate `mcp_config.json` file or a standalone `mcp_amap_server.py`.
 
-### 3.1 Create Configuration File
+### 3.1 Install uv
 
-Create a `.env` file and enter your Amap API Key:
-
-```env
-AMAP_API_KEY=your_amap_api_key_here
+```shell
+pip install uv
 ```
 
-### 3.2 Configure MCP Server
+### 3.2 Configure the API Key
 
-Create `mcp_config.json` file:
+You can choose either approach:
 
-```json
-{
-  "mcpServers": {
-    "amap": {
-      "command": "python",
-      "args": ["mcp_amap_server.py"],
-      "env": {
-        "AMAP_API_KEY": "${AMAP_API_KEY}"
-      }
-    }
-  }
-}
+1. Edit the `amap_api_key` value directly in `travel_planner_mcp.py`
+2. Or set `amap_api_key` to empty in the script and inject the key through an environment variable
+
+```shell
+setx AMAP_MAPS_API_KEY "your_amap_api_key_here"
 ```
 
 ## Step 4: Run the Intelligent Travel Planning Assistant
@@ -166,22 +157,22 @@ Create `mcp_config.json` file:
 git clone https://github.com/datawhalechina/hello-rocm.git
 
 # Enter the project directory
-cd hello-rocm/05-AMD-YES/05-hello-agents/Intelligent-Travel-Planning-Assistant-Simple-Practice
+cd hello-rocm/05-AMD-YES/05-hello-agents/smart-travel-planner
 ```
 
 ### 4.2 Configure Model Endpoint
 
-Edit `travel_planner_mcp.py` and modify the model configuration:
+Edit `travel_planner_mcp.py` and update the `HelloAgentsLLM(...)` configuration:
 
 ```python
-# If using Ollama
-model_name = "qwen2.5:32b"
-base_url = "http://localhost:11434"
-
-# If using LM Studio
-model_name = "qwen2.5-32b"
-base_url = "http://127.0.0.1:1234/v1"
+self.llm = HelloAgentsLLM(
+    model="Qwen3-30B-2507-instruct",
+    base_url="http://127.0.0.1:1234/v1",
+    api_key="amd395"
+)
 ```
+
+If you are using a different local endpoint, just replace `model` and `base_url` with your own values.
 
 ### 4.3 Run the Assistant
 
@@ -191,13 +182,15 @@ python travel_planner_mcp.py
 
 ### 4.4 Usage Example
 
-After running, follow the prompts to enter travel information:
+The current sample script runs directly with a built-in Hangzhou 3-day example. To change the destination, budget, or preferences, edit the parameters in `main()`:
 
-```
-Please enter destination city: Hangzhou
-Please enter number of travel days: 3
-Please enter budget (yuan): 3000
-Please enter travel preferences (e.g., culture, cuisine, natural scenery): culture, cuisine
+```python
+result = planner.plan_travel(
+    destination="杭州",
+    days=3,
+    budget=3000,
+    preferences="自然风光和历史文化"
+)
 ```
 
 The AI assistant will automatically:
@@ -208,7 +201,7 @@ The AI assistant will automatically:
 
 ## Step 5: View Generated Travel Plans
 
-The generated travel plans will be saved as Markdown files, such as `Hangzhou_3-Day-Trip_MCP.md`.
+The generated travel plan is saved as a Markdown file, and the filename changes with the destination, such as `杭州_3日游_MCP.md`. The repository also includes Chinese and English sample outputs under `smart-travel-planner/examples/`.
 
 Files contain:
 - 📅 Detailed daily itinerary arrangements
@@ -221,13 +214,18 @@ Files contain:
 ## Project Structure
 
 ```
-Intelligent-Travel-Planning-Assistant-Simple-Practice/
-├── travel_planner_mcp.py          # Main program
-├── mcp_amap_server.py             # Amap MCP server
-├── mcp_config.json                # MCP configuration file
-├── .env                           # Environment variables (API Key)
-├── Hangzhou_3-Day-Trip_MCP.md     # Example output
-└── AMD395×HelloAgents-Practice-Intelligent-Travel-Planning-Assistant_EN.md  # Detailed tutorial
+smart-travel-planner/
+├── assets/
+│   ├── picture7-1.png
+│   └── picture7-2.png
+├── docs/
+│   ├── amd395-helloagents-smart-travel-planner-en.md
+│   ├── amd395-helloagents-smart-travel-planner-zh.md
+│   └── amd395-helloagents-smart-travel-planner-zh.pdf
+├── examples/
+│   ├── hangzhou-3-day-mcp.md
+│   └── 杭州_3日游_MCP.md
+└── travel_planner_mcp.py
 ```
 
 ## Frequently Asked Questions
@@ -247,8 +245,8 @@ Intelligent-Travel-Planning-Assistant-Simple-Practice/
 ### Q3: How to switch to other map services?
 
 - Can be replaced with Baidu Maps, Tencent Maps, etc.
-- Modify the API call logic in `mcp_amap_server.py`
-- Update the MCP configuration file
+- Adjust the service configuration inside `MCPTool(...)` in `travel_planner_mcp.py`
+- Replace the map provider API key and query parameters accordingly
 
 ## Advanced Extensions
 
@@ -264,7 +262,8 @@ Intelligent-Travel-Planning-Assistant-Simple-Practice/
 - [MCP Protocol Specification](https://modelcontextprotocol.io/)
 - [Amap API Documentation](https://lbs.amap.com/api/)
 - [AMD ROCm Documentation](https://rocm.docs.amd.com/)
-- [Detailed Tutorial](./Intelligent-Travel-Planning-Assistant-Simple-Practice/AMD395×HelloAgents-Practice-Intelligent-Travel-Planning-Assistant_EN.md)
+- [Detailed Tutorial](./smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-en.md)
+- [Chinese Tutorial](./smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-zh.md)
 
 ---
 

@@ -23,13 +23,16 @@ This tutorial demonstrates how to build a local smart travel-planning agent on A
 
 ```shell
 python -m pip install --upgrade pip
-pip install hello-agents requests python-dotenv
+pip install hello-agents requests python-dotenv uv
 ```
 
-Create `.env`:
+Then either:
 
-```env
-AMAP_API_KEY=your_amap_api_key_here
+1. set `amap_api_key` directly in `travel_planner_mcp.py`, or
+2. export the API key through an environment variable:
+
+```shell
+setx AMAP_MAPS_API_KEY "your_amap_api_key_here"
 ```
 
 ## Run
@@ -38,7 +41,7 @@ AMAP_API_KEY=your_amap_api_key_here
 python travel_planner_mcp.py
 ```
 
-Then input destination, trip days, budget, and preferences. The agent will:
+The sample script currently runs with a built-in Hangzhou example. Update the values in `main()` if you want a different destination, number of days, budget, or preferences. The agent will:
 
 1. query POIs and weather
 2. reason over budget constraints
@@ -46,16 +49,16 @@ Then input destination, trip days, budget, and preferences. The agent will:
 
 ## Output
 
-The generated result is saved as Markdown (example: [hangzhou-3-day-mcp.md](./hangzhou-3-day-mcp.md)).
+The generated result is saved as Markdown (example: [hangzhou-3-day-mcp.md](../examples/hangzhou-3-day-mcp.md)).
 
 ## Architecture Notes
 
 - Agent core: HelloAgents
-- Tool bridge: MCP server process
+- Tool bridge: `uvx amap-mcp-server`
 - External service: AMap API
 - Runtime: local OpenAI-compatible endpoint
 
 ## Notes
 
-An independent Chinese version is provided in the same directory.
+The Chinese tutorial is available as [amd395-helloagents-smart-travel-planner-zh.md](./amd395-helloagents-smart-travel-planner-zh.md).
 
