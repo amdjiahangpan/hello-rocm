@@ -27,7 +27,7 @@
 
 Implement the LLaMA2 model with 80 million parameters entirely in pure PyTorch from zero, completing pre-training and SFT fine-tuning on AMD ROCm without relying on any training framework.
 
-📖 [Chapter Tutorial](./chapter5/第五章%20动手搭建大模型_EN.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter5/README_EN.md)
+📖 [Chapter Tutorial](./chapter5/chapter5-hands-on-llm-building.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter5/README_EN.md)
 
 ---
 
@@ -35,7 +35,7 @@ Implement the LLaMA2 model with 80 million parameters entirely in pure PyTorch f
 
 Based on the Transformers + DeepSpeed framework, reproduce industry-grade pre-training and SFT workflows with support for AMD ROCm multi-card distributed training and ZeRO optimization.
 
-📖 [Chapter Tutorial](./chapter6/第六章%20大模型训练流程实践_EN.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter6/README_EN.md)
+📖 [Chapter Tutorial](./chapter6/chapter6-llm-training-workflow-practice.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter6/README_EN.md)
 
 ---
 
@@ -243,7 +243,7 @@ If you want to get started training quickly, you can go directly to Chapter 6. I
 │   ├── README.md                       # Execution process and parameter instructions (Chinese)
 │   ├── README_EN.md                    # English version
 │   ├── 第五章 动手搭建大模型.md          # Chapter detailed tutorial (Chinese)
-│   ├── 第五章 动手搭建大模型_EN.md       # English version
+│   ├── chapter5-hands-on-llm-building.md  # English version
 │   └── code/
 │       ├── 00_download_dataset.sh          # Step 0: Download dataset (Linux)
 │       ├── 00_windows_download_dataset.sh  # Step 0: Download dataset (Windows)
@@ -261,9 +261,9 @@ If you want to get started training quickly, you can go directly to Chapter 6. I
     ├── README.md                       # Execution process and parameter instructions (Chinese)
     ├── README_EN.md                    # English version
     ├── 第六章 大模型训练流程实践.md      # Chapter detailed tutorial (Chinese)
-    ├── 第六章 大模型训练流程实践_EN.md   # English version
+   ├── chapter6-llm-training-workflow-practice.md  # English version
     ├── 6.4[WIP] 偏好对齐.md            # Section 6.4 (Under Construction - Chinese)
-    ├── 6.4[WIP] 偏好对齐_EN.md         # English version
+   ├── chapter6-4-wip-preference-alignment.md      # English version
     └── code/
         ├── 00_download_model.py        # Step 0: Download base model
         ├── 01_download_dataset.py      # Step 1a: Download dataset
