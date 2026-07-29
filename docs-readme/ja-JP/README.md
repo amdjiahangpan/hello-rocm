@@ -28,9 +28,9 @@
 </div>
 
 <p align="center">
-  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
 &emsp;&emsp;**ROCm 7.10.0**（2025年12月11日リリース）以降、ROCmはCUDAと同様にPython仮想環境にシームレスにインストールでき、**LinuxとWindowsの両方**を公式サポートしています。これはAMDにとってAI分野における大きな一歩です。学習者やLLM愛好家はもはやNVIDIAハードウェアに制限されることなく、AMD GPUが強力で実用的な選択肢となります。

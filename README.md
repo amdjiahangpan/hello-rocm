@@ -29,9 +29,9 @@
 </div>
 
 <p align="center">
-  <img src="./docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+  <img src="./docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
 &emsp;&emsp;自 **ROCm 7.10.0** (2025年12月11日发布) 以来，ROCm 已支持像 CUDA 一样在 Python 虚拟环境中无缝安装，并正式支持 **Linux 和 Windows** 双系统。这标志着 AMD 在 AI 领域的重大突破——学习者与大模型爱好者在硬件选择上不再局限于 NVIDIA，AMD GPU 正成为一个强有力的竞争选择。

@@ -28,9 +28,9 @@
 </div>
 
 <p align="center">
-  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
 &emsp;&emsp;منذ **ROCm 7.10.0** (الذي صدر في 11 ديسمبر 2025)، يمكن تثبيت ROCm بسلاسة في البيئات الافتراضية Python تمامًا مثل CUDA، مع دعم رسمي لكل من **Linux وWindows**. هذه خطوة كبيرة من AMD في مجال الذكاء الاصطناعي: لم يعد المتعلمون وعشاق LLM مقيدين بأجهزة NVIDIA—بطاقات AMD GPU أصبحت خيارًا قويًا وعمليًا.

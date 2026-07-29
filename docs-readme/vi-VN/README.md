@@ -28,9 +28,9 @@
 </div>
 
 <p align="center">
-  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
 &emsp;&emsp;Kể từ **ROCm 7.10.0** (phát hành ngày 11 tháng 12 năm 2025), ROCm có thể được cài đặt liền mạch trong môi trường ảo Python giống như CUDA, với hỗ trợ chính thức cho cả **Linux và Windows**. Đây là một bước tiến lớn của AMD trong lĩnh vực AI: người học và những người đam mê LLM không còn bị giới hạn bởi phần cứng NVIDIA—GPU AMD là một lựa chọn mạnh mẽ và thiết thực.

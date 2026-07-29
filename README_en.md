@@ -23,14 +23,14 @@
 </div>
 <div align="center">
 
-<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/hello--rocm_Full_Tutorial-Try_Online-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="25"></a>
+<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/hello--rocm_Full_Tutorial-Try_Online-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
 
 </div>
 
 <p align="center">
-  <img src="./docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+  <img src="./docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
 &emsp;&emsp;Starting with **ROCm 7.10.0** (released December 11, 2025), ROCm installs cleanly into Python virtual environments—just like CUDA—and officially supports both **Linux and Windows**. This is a big deal: if you're learning AI or tinkering with large language models, you're no longer locked into NVIDIA hardware. AMD GPUs are now a genuinely practical option.
