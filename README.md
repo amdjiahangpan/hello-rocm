@@ -28,6 +28,12 @@
 
 </div>
 
+<p align="center">
+  <img src="./docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
+</p>
+
 &emsp;&emsp;自 **ROCm 7.10.0** (2025年12月11日发布) 以来，ROCm 已支持像 CUDA 一样在 Python 虚拟环境中无缝安装，并正式支持 **Linux 和 Windows** 双系统。这标志着 AMD 在 AI 领域的重大突破——学习者与大模型爱好者在硬件选择上不再局限于 NVIDIA，AMD GPU 正成为一个强有力的竞争选择。
 
 &emsp;&emsp;然而，**硬件门槛的降低并不意味着学习路径自动清晰**。对于已经具备大模型基础、希望在 AMD GPU 上付诸实践的学习者来说，真正的问题才刚刚开始：如何在 AMD GPU 上把一个模型部署起来？如何在此基础上对模型进行微调与训练？如何理解 ROCm 的 GPU 编程体系、完成从 CUDA 到 ROCm 的迁移？最终，这些能力又如何汇聚成一个可以落地运行的 AI 应用？

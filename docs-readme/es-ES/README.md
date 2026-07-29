@@ -27,6 +27,12 @@
 
 </div>
 
+<p align="center">
+  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="44">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
+</p>
+
 &emsp;&emsp;Desde **ROCm 7.10.0** (lanzado el 11 de diciembre de 2025), ROCm se puede instalar sin problemas en entornos virtuales de Python, de manera similar a CUDA, con soporte oficial tanto para **Linux como para Windows**. Este es un gran paso para AMD en IA: los estudiantes y entusiastas de LLM ya no están limitados al hardware de NVIDIA: las GPU de AMD son una opción sólida y práctica.
 
 &emsp;&emsp;Sin embargo, **reducir la barrera de hardware no significa que el camino de aprendizaje se aclare automáticamente**. Para los estudiantes que ya tienen fundamentos de LLM y quieren ponerlos en práctica en GPUs AMD, los verdaderos desafíos apenas comienzan: ¿Cómo desplegar un modelo en GPU AMD? ¿Cómo hacer ajuste fino y entrenamiento sobre esa base? ¿Cómo entender el sistema de programación GPU de ROCm y completar la migración de CUDA a ROCm? Y finalmente, ¿cómo reunir todas estas capacidades en una aplicación de IA real y funcional?
