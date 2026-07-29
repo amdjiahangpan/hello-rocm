@@ -27,6 +27,12 @@
 
 </div>
 
+<p align="center">
+  <img src="../../docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../../docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+</p>
+
 &emsp;&emsp;Seit **ROCm 7.10.0** (veröffentlicht am 11. Dezember 2025) kann ROCm nahtlos in Python-Virtual-Umgebungen installiert werden, ähnlich wie CUDA, mit offizieller Unterstützung für **Linux und Windows**. Dies ist ein großer Schritt für AMD im Bereich KI: Lernende und LLM-Enthusiasten sind nicht länger auf NVIDIA-Hardware beschränkt – AMD-GPUs sind eine starke, praktische Wahl.
 
 &emsp;&emsp;Jedoch bedeutet **die Senkung der Hardware-Barriere nicht automatisch, dass der Lernpfad klar wird**. Für Lernende, die bereits LLM-Grundlagen haben und diese auf AMD-GPUs in die Praxis umsetzen möchten, beginnen die wahren Herausforderungen erst: Wie deployt man ein Modell auf AMD-GPU? Wie führt man darauf aufbauend Feinabstimmung und Training durch? Wie versteht man das GPU-Programmiersystem von ROCm und vollzieht die Migration von CUDA zu ROCm? Und schließlich, wie bringt man all diese Fähigkeiten in einer echten, funktionierenden KI-Anwendung zusammen?

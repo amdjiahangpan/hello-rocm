@@ -27,6 +27,12 @@
 
 </div>
 
+<p align="center">
+  <img src="./docs/public/images/aup-logo.png" alt="AMD University Program" height="64">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="64">
+</p>
+
 &emsp;&emsp;Starting with **ROCm 7.10.0** (released December 11, 2025), ROCm installs cleanly into Python virtual environments—just like CUDA—and officially supports both **Linux and Windows**. This is a big deal: if you're learning AI or tinkering with large language models, you're no longer locked into NVIDIA hardware. AMD GPUs are now a genuinely practical option.
 
 &emsp;&emsp;That said, **easier hardware access doesn't mean the learning path is obvious**. If you already know your way around LLMs and want to run them on AMD, the real questions start here: How do you actually deploy a model on an AMD GPU? How do you fine-tune or train on top of that? How does ROCm's programming model work, and what does migrating from CUDA look like? And ultimately, how do all these pieces fit together into a production-ready AI app?
