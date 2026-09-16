@@ -17,14 +17,15 @@
 
 &emsp;&emsp;自 ROCm 7.10.0 起，ROCm 已支持像 CUDA 一样在 Python 虚拟环境中无缝安装，这大大降低了 AMD GPU 大模型部署的门槛。
 
-&emsp;&emsp;本模块默认以 **Google Gemma 4**（`gemma-4-E4B-it` 为主）作为示例模型，同时提供 **Qwen3** 的平行教程供参考。目录结构如下：
+&emsp;&emsp;本模块默认以 **Google Gemma 4**（`gemma-4-E4B-it` 为主）作为示例模型，同时提供 **Qwen3 / Qwen3.5 / Qwen3.6** 的平行教程。Ryzen AI 的 **XDNA2 NPU** 路径使用 FastFlowLM 与 Lemonade，环境见 [00-Environment](/zh/00-environment/)。目录结构如下：
 
 ```
 01-Deploy/
 └── models/
     ├── Gemma4/           # 以 Gemma 4 为主的部署教程（主推荐）
     ├── Qwen3/            # Qwen3 系列部署教程（参考对比）
-    └── Qwen3.5/          # Qwen3.5 系列部署教程（新架构参考）
+    ├── Qwen3.5/          # Qwen3.5 系列部署教程（新架构参考）
+    └── Qwen3.6/          # Qwen3.6 FastFlowLM / Lemonade
 ```
 
 ## 教程列表
@@ -106,12 +107,39 @@
 
 ---
 
+### FastFlowLM 零基础 NPU 部署
+
+&emsp;&emsp;FastFlowLM（`flm`）是面向 AMD **XDNA2 NPU** 的原生推理运行时，使用 NPU2 权重而不是 GGUF。本教程以 **Gemma 4 E4B-it** 为例，在 Ubuntu 24.04 上把模型暴露成 OpenAI 兼容接口（默认 **8219**），并给出 1k–32k 实测。Qwen3.6-35B-A3B 作为更大 MoE 的平行教程。
+
+- **适合人群**：Ryzen AI MAX / AI 300 等带 XDNA2 的用户，想在 NPU 上跑端侧模型
+- **难度等级**：⭐⭐
+- **预计时间**：权重下载视网速；Gemma 4 加载后冒烟约 1 分钟
+
+📖 [开始学习 FastFlowLM 部署教程（Gemma4）](/zh/01-deploy/gemma4/fastflowlm-npu-deploy.md)  
+📎 参考：[Qwen3.6 版本](/zh/01-deploy/qwen36/fastflowlm-npu-deploy.md) · [NPU 实测](/zh/01-deploy/gemma4/fastflowlm-npu-results.md) · [环境](/zh/00-environment/fastflowlm.md)
+
+---
+
+### Lemonade 零基础大模型部署
+
+&emsp;&emsp;Lemonade Server 提供统一的 Web UI 与 OpenAI 兼容 API（默认 **13305**）。GPU 走 llama.cpp（本教程在 kernel 6.17 上验证 `llamacpp:vulkan`）；NPU 底层仍是 FastFlowLM。因 systemd `lemond` 的 ProtectHome 限制，**NPU 稳定路径推荐原生 FastFlowLM 8219**。
+
+- **适合人群**：希望一个端口切 GPU、带 Web UI 的用户
+- **难度等级**：⭐⭐
+- **预计时间**：1 小时（含环境）
+
+📖 [开始学习 Lemonade GPU 部署教程（Gemma4）](/zh/01-deploy/gemma4/lemonade-gpu-deploy.md)  
+📎 参考：[Lemonade NPU（Gemma4）](/zh/01-deploy/gemma4/lemonade-npu-deploy.md) · [Qwen3.6 GPU](/zh/01-deploy/qwen36/lemonade-gpu-deploy.md) · [环境](/zh/00-environment/lemonade.md)
+
+---
+
 ## 环境要求
 
 ### 硬件要求
 
 - AMD GPU（支持 ROCm 的显卡，如 RX 7000 / 9000 系列、Ryzen AI MAX / AI 300、Instinct MI 系列等）
 - 建议显存 8GB 以上（Gemma 4 E4B Q4_K_M 量化版本可在 8GB 显存下运行；如需原生 bfloat16 推理或更大模型，请参考对应教程的显存建议）
+- FastFlowLM / Lemonade NPU 路径额外需要 **XDNA2**（见 [硬件对照](/zh/00-environment/xdna2-npu.md)）
 
 ### 软件要求
 
@@ -150,6 +178,8 @@ Gemma 系列模型需要先在 Hugging Face 对应模型页（例如 <a href="ht
 - [vLLM 官方文档](https://docs.vllm.ai/)
 - [Ollama 官方文档](https://docs.ollama.com/)
 - [llama.cpp 仓库](https://github.com/ggerganov/llama.cpp)
+- [FastFlowLM](https://fastflowlm.com/docs/)
+- [Lemonade Server](https://lemonade-server.ai/)
 - [Hugging Face Gemma 4 模型合集](https://huggingface.co/collections/google/gemma-4)
 
 ---

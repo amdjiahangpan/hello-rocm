@@ -212,7 +212,37 @@ Gemma 4 是当前开源多模态模型中的佼佼者，其核心优势包括：
 6. **智能体就绪**：原生函数调用、结构化输出和系统指令，适合构建复杂的 Agentic 工作流。
 7. **生态完善**：主流推理框架首日支持，多硬件平台优化（NVIDIA / AMD ROCm / Google TPU / Apple Silicon），量化与微调工具齐备。
 
+---
+
+### 八、在 XDNA2 NPU 上跑哪一档
+
+GPU 教程用 GGUF / Hugging Face 权重。若走 **FastFlowLM**，权重是 NPU2（`model.q4nx`），不是 GGUF。本教程主推：
+
+| FLM tag | 对应底座 | 量化 | 常驻 | 本教程 |
+|:---|:---|:---|:---|:---|
+| `gemma4-it:e2b` | gemma-4-E2B-it | Q4_1 | 约 6 GiB | 更省 |
+| **`gemma4-it:e4b`** | gemma-4-E4B-it | **Q4_1** | **约 9 GiB** | **主推** |
+
+NPU 部署：[FastFlowLM](./fastflowlm-npu-deploy.md) · [Lemonade NPU](./lemonade-npu-deploy.md)。Lemonade GPU 仍用 GGUF：[Lemonade GPU](./lemonade-gpu-deploy.md)。
+
 > 更多信息请参阅：
 > - [Hugging Face Blog - Welcome Gemma 4](https://huggingface.co/blog/gemma4)
 > - [Google Blog - Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
 > - [Hugging Face Gemma 4 模型合集](https://huggingface.co/collections/google/gemma-4)
+
+---
+
+### 九、在 XDNA2 NPU 上跑哪一档
+
+GPU 教程用 GGUF / Hugging Face 权重。NPU 必须用 FastFlowLM 的 **NPU2** 权重（`model.q4nx`），不要把 `Q4_K_M.gguf` 塞给 `flm`。
+
+| FLM tag | 对应底座 | 量化 | 常驻 footprint | 本教程 |
+|:---|:---|:---|:---|:---|
+| `gemma4-it:e2b` | gemma-4-E2B-it | Q4_1 | 约 6 GiB | 更省 |
+| **`gemma4-it:e4b`** | gemma-4-E4B-it | **Q4_1** | **约 9 GiB** | **主推** |
+| `gemma4-it:12b` | gemma-4-12B-it | Q4_0 | 约 9.4 GiB | 更大文本 |
+
+E4B 与本模块 GPU 主模型一致，便于同一台 Strix Halo 对比 **NPU vs GPU**。原生图 + 音频；视频能力不代表 NPU runtime 已接。微调仍走 GPU / [02-Fine-tune](/zh/02-fine-tune/)。
+
+部署入口：[FastFlowLM](./fastflowlm-npu-deploy.md) · [Lemonade GPU](./lemonade-gpu-deploy.md) · [Lemonade NPU](./lemonade-npu-deploy.md)
+

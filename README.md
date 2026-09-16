@@ -42,7 +42,7 @@
 
 &emsp;&emsp;**项目的主要内容就是教程，让更多的学生和未来的从业者了解和熟悉 AMD ROCm 的使用方法！任何人都可以提出 issue 或是提交 PR，共同构建维护这个项目。**
 
-> &emsp;&emsp;***学习建议：建议先完成 [00-Environment](./docs/zh/00-environment/index.md) 中的环境安装（ROCm + PyTorch + uv），再学习部署与微调，最后探索算子优化与 GPU 编程。初学者可在环境就绪后从 LM Studio 或 vLLM 部署开始。***
+> &emsp;&emsp;***学习建议：建议先完成 [00-Environment](./docs/zh/00-environment/index.md) 中的环境安装（ROCm + PyTorch + uv）。Ryzen AI 用户若要用 NPU，再完成 [FastFlowLM](./docs/zh/00-environment/fastflowlm.md) / [Lemonade](./docs/zh/00-environment/lemonade.md)。然后学习部署与微调，最后探索算子优化与 GPU 编程。初学者可在环境就绪后从 LM Studio、vLLM 或 FastFlowLM 开始。***
 
 ### hello-rocm Skill：把本项目装进你的 AI 助手
 
@@ -52,7 +52,7 @@
 请使用当前仓库的 src/hello-rocm-skill 作为 hello-rocm Skill；如果你的工具支持 Skills、Rules 或 Agent 配置，请把它安装或加载到合适位置（例如 .claude/skills、.cursor/skills 或 .agents/skills），然后根据该 Skill 帮我学习、部署和排查 AMD ROCm。
 ```
 
-&emsp;&emsp;你可以这样问：我的 AMD GPU 能不能跑 ROCm？我想最快跑通一个本地大模型应该看哪篇？vLLM / Ollama / llama.cpp 在 ROCm 上怎么装？`torch.cuda.is_available()` 返回 False 怎么排查？更多说明见 [hello-rocm Skill 使用指南](./docs/zh/04-references/index.md#hello-rocm-skill)。
+&emsp;&emsp;你可以这样问：我的 AMD GPU 能不能跑 ROCm？我想最快跑通一个本地大模型应该看哪篇？vLLM / Ollama / llama.cpp / FastFlowLM / Lemonade 在 ROCm 或 NPU 上怎么装？`torch.cuda.is_available()` 返回 False 怎么排查？更多说明见 [hello-rocm Skill 使用指南](./docs/zh/04-references/index.md#hello-rocm-skill)。
 
 ### 最新动态
 
@@ -107,6 +107,19 @@
     </td>
   </tr>
   <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/01-deploy/qwen36/qwen36_model.md">Qwen3.6 模型介绍</a><br>
+      • <a href="./docs/zh/01-deploy/qwen36/fastflowlm-npu-deploy.md">FastFlowLM NPU部署</a><br>
+      • <a href="./docs/zh/01-deploy/qwen36/lemonade-gpu-deploy.md">Lemonade GPU部署</a><br>
+      • <a href="./docs/zh/01-deploy/qwen36/lemonade-npu-deploy.md">Lemonade NPU部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
     <td colspan="2" align="center" style="border: none !important;"><strong>Gemma4</strong></td>
   </tr>
   <tr>
@@ -116,6 +129,9 @@
       • <a href="./docs/zh/01-deploy/gemma4/vllm-rocm7-deploy.md">vLLM部署</a><br>
       • <a href="./docs/zh/01-deploy/gemma4/ollama-rocm7-deploy.md">Ollama部署</a><br>
       • <a href="./docs/zh/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
+      • <a href="./docs/zh/01-deploy/gemma4/fastflowlm-npu-deploy.md">FastFlowLM NPU部署</a><br>
+      • <a href="./docs/zh/01-deploy/gemma4/lemonade-gpu-deploy.md">Lemonade GPU部署</a><br>
+      • <a href="./docs/zh/01-deploy/gemma4/lemonade-npu-deploy.md">Lemonade NPU部署</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
       • <a href="./src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 - E4B LoRA微调（ModelScope 单卡）</a><br>
@@ -251,7 +267,9 @@ hello-rocm/
       • <a href="./docs/zh/00-environment/rocm-gpu-architecture-table.md">GPU 架构与 pip 索引对照表</a><br>
       • Windows 11 安装、驱动与安全项前置说明<br>
       • Ubuntu 24.04 安装（uv 方式与备选一键脚本）<br>
-      • 安装校验、卸载与切换其他 GPU 架构
+      • 安装校验、卸载与切换其他 GPU 架构<br>
+      • <a href="./docs/zh/00-environment/xdna2-npu.md">Ryzen AI XDNA2 硬件对照</a><br>
+      • <a href="./docs/zh/00-environment/fastflowlm.md">FastFlowLM 环境</a> · <a href="./docs/zh/00-environment/lemonade.md">Lemonade 环境</a>
     </td>
   </tr>
 </table>
@@ -271,6 +289,8 @@ hello-rocm/
       • vLLM 零基础大模型部署<br>
       • Ollama 零基础大模型部署<br>
       • llama.cpp 零基础大模型部署<br>
+      • FastFlowLM 零基础 NPU 部署<br>
+      • Lemonade 零基础大模型部署<br>
       • ATOM 零基础大模型部署
     </td>
   </tr>

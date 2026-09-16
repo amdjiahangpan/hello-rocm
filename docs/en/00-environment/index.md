@@ -76,6 +76,7 @@ ROCm 10.0.0 provides optimized support for popular deep learning frameworks and 
 - [3. Verify Installation](#3-verify-installation)
 - [4. Uninstall ROCm](#4-uninstall-rocm)
 - [5. Switching GPU Architectures](#5-switching-gpu-architectures)
+- [6. Ryzen AI NPU (XDNA2)](#6-ryzen-ai-npu-xdna2)
 
 ---
 
@@ -375,6 +376,23 @@ uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ "torch[dev
 > 💡 For the apt path, add the `stable.repo.amd.com` repo from [Section 2.5](#25-alternative-apt-install-therock), then use the meta-package name shown on the [official install page](https://rocm.docs.amd.com/en/latest/install/rocm.html).
 
 Full reference: [GPU Architecture Table](/00-environment/rocm-gpu-architecture-table)
+
+---
+
+## 6. Ryzen AI NPU (XDNA2)
+
+&emsp;&emsp;Ryzen AI MAX / AI 300 machines also have an **XDNA2 NPU**. NPU inference does not use the ROCm GPU stack. Use **FastFlowLM** (native `flm`) or **Lemonade** (OpenAI-compatible server + Web UI; GPU via llama.cpp, NPU still FLM underneath).
+
+&emsp;&emsp;Read the hardware page first, then install FastFlowLM. Add Lemonade when you want a single port and Web UI. GPU and NPU can share one machine, but **only one client may own the NPU**, and you must not `source /opt/rocm` before `flm`.
+
+| Page | Content |
+|:---|:---|
+| [XDNA2 hardware](/00-environment/xdna2-npu) | Supported processors, firmware / driver / IOMMU |
+| [FastFlowLM environment](/00-environment/fastflowlm) | `libxrt-npu2` + `amdxdna-dkms` + `flm` |
+| [Lemonade environment](/00-environment/lemonade) | Server on 13305, llamacpp backends, split vs FLM |
+| [NPU troubleshooting](/00-environment/npu-troubleshooting) | SVA bind, ProtectHome, port conflicts |
+
+Deploy: [Gemma 4 FastFlowLM](/01-deploy/gemma4/fastflowlm-npu-deploy.md) · [Gemma 4 Lemonade](/01-deploy/gemma4/lemonade-gpu-deploy.md) · [Qwen3.6](/01-deploy/qwen36/qwen36_model.md)
 
 ---
 

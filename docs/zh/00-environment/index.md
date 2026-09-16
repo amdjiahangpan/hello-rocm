@@ -76,6 +76,7 @@ ROCm 10.0.0 为主流深度学习框架和推理引擎提供了优化支持（�
 - [三、校验安装](#三校验安装)
 - [四、卸载 ROCm](#四卸载-rocm)
 - [五、切换其他 GPU 架构](#五切换其他-gpu-架构)
+- [六、Ryzen AI NPU（XDNA2）](#六ryzen-ai-npuxdna2)
 
 ---
 
@@ -384,6 +385,23 @@ uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ "torch[dev
 > 💡 若走 apt 系统包安装，按 [2.5 节](#25-备选apt-安装therock) 添加 `stable.repo.amd.com` 仓库后，以 [官方安装页](https://rocm.docs.amd.com/en/latest/install/rocm.html) 当前元包名为准。
 
 完整对照表见 [GPU 架构对照表](/zh/00-environment/rocm-gpu-architecture-table)。
+
+---
+
+## 六、Ryzen AI NPU（XDNA2）
+
+&emsp;&emsp;Ryzen AI MAX / AI 300 等机器除 iGPU 外还有 **XDNA2 NPU**。NPU 推理不走 ROCm GPU 栈，而走 **FastFlowLM**（原生 `flm`）或 **Lemonade**（OpenAI 兼容服务 + Web UI，GPU 用 llama.cpp，NPU 底层仍是 FLM）。
+
+&emsp;&emsp;建议顺序：先读硬件对照，再装 FastFlowLM；需要统一端口和 Web UI 时再装 Lemonade。NPU 与 GPU 可以装在同一台机器上，但 **NPU 同时只能被一路占用**，且不要 `source /opt/rocm` 后再跑 `flm`。
+
+| 页面 | 内容 |
+|:---|:---|
+| [XDNA2 硬件对照](/zh/00-environment/xdna2-npu) | 支持的处理器、固件 / 驱动 / IOMMU 要求 |
+| [FastFlowLM 环境](/zh/00-environment/fastflowlm) | `libxrt-npu2` + `amdxdna-dkms` + `flm` 安装与校验 |
+| [Lemonade 环境](/zh/00-environment/lemonade) | Lemonade Server 13305、llamacpp 后端、与 FLM 的分工 |
+| [NPU 排错](/zh/00-environment/npu-troubleshooting) | SVA bind、-19、ProtectHome、端口互斥 |
+
+部署教程入口：[Gemma 4 FastFlowLM](/zh/01-deploy/gemma4/fastflowlm-npu-deploy.md) · [Gemma 4 Lemonade](/zh/01-deploy/gemma4/lemonade-gpu-deploy.md) · [Qwen3.6](/zh/01-deploy/qwen36/qwen36_model.md)
 
 ---
 

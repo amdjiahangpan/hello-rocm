@@ -28,7 +28,11 @@ const zhSidebar: DefaultTheme.Sidebar = {
       items: [
         { text: 'ROCm 基础环境安装与配置', link: '/zh/00-environment/' },
         { text: 'ROCm 10.0.0 版本说明', link: '/zh/00-environment/rocm-10-0-0-release-notes' },
-        { text: 'GPU 架构与 pip 索引对照表', link: '/zh/00-environment/rocm-gpu-architecture-table' }
+        { text: 'GPU 架构与 pip 索引对照表', link: '/zh/00-environment/rocm-gpu-architecture-table' },
+        { text: 'Ryzen AI XDNA2 硬件对照', link: '/zh/00-environment/xdna2-npu' },
+        { text: 'FastFlowLM 环境配置', link: '/zh/00-environment/fastflowlm' },
+        { text: 'Lemonade 环境配置', link: '/zh/00-environment/lemonade' },
+        { text: 'NPU / Lemonade 排错', link: '/zh/00-environment/npu-troubleshooting' }
       ]
     }
   ],
@@ -65,6 +69,16 @@ const zhSidebar: DefaultTheme.Sidebar = {
               ]
             },
             {
+              text: 'Qwen3.6',
+              collapsed: false,
+              items: [
+                { text: 'Qwen3.6 模型介绍', link: '/zh/01-deploy/qwen36/qwen36_model' },
+                { text: 'FastFlowLM NPU 部署', link: '/zh/01-deploy/qwen36/fastflowlm-npu-deploy' },
+                { text: 'Lemonade GPU 部署', link: '/zh/01-deploy/qwen36/lemonade-gpu-deploy' },
+                { text: 'Lemonade NPU 部署', link: '/zh/01-deploy/qwen36/lemonade-npu-deploy' }
+              ]
+            },
+            {
               text: 'Gemma4',
               collapsed: false,
               items: [
@@ -73,7 +87,11 @@ const zhSidebar: DefaultTheme.Sidebar = {
                 { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/gemma4/lm-studio-rocm7-deploy' },
                 { text: 'vLLM 零基础部署', link: '/zh/01-deploy/gemma4/vllm-rocm7-deploy' },
                 { text: 'Ollama 零基础部署', link: '/zh/01-deploy/gemma4/ollama-rocm7-deploy' },
-                { text: 'llama.cpp 零基础部署', link: '/zh/01-deploy/gemma4/llamacpp-rocm7-deploy' }
+                { text: 'llama.cpp 零基础部署', link: '/zh/01-deploy/gemma4/llamacpp-rocm7-deploy' },
+                { text: 'FastFlowLM NPU 部署', link: '/zh/01-deploy/gemma4/fastflowlm-npu-deploy' },
+                { text: 'Lemonade GPU 部署', link: '/zh/01-deploy/gemma4/lemonade-gpu-deploy' },
+                { text: 'Lemonade NPU 部署', link: '/zh/01-deploy/gemma4/lemonade-npu-deploy' },
+                { text: 'FastFlowLM NPU 实测', link: '/zh/01-deploy/gemma4/fastflowlm-npu-results' }
               ]
             },
             {
@@ -316,7 +334,11 @@ const enSidebar: DefaultTheme.Sidebar = {
       items: [
         { text: 'ROCm Environment Setup', link: '/00-environment/' },
         { text: 'ROCm 10.0.0 Release Notes', link: '/00-environment/rocm-10-0-0-release-notes' },
-        { text: 'GPU Architecture and pip Index Table', link: '/00-environment/rocm-gpu-architecture-table' }
+        { text: 'GPU Architecture and pip Index Table', link: '/00-environment/rocm-gpu-architecture-table' },
+        { text: 'Ryzen AI XDNA2 Hardware', link: '/00-environment/xdna2-npu' },
+        { text: 'FastFlowLM Environment', link: '/00-environment/fastflowlm' },
+        { text: 'Lemonade Environment', link: '/00-environment/lemonade' },
+        { text: 'NPU / Lemonade Troubleshooting', link: '/00-environment/npu-troubleshooting' }
       ]
     }
   ],
@@ -353,6 +375,16 @@ const enSidebar: DefaultTheme.Sidebar = {
               ]
             },
             {
+              text: 'Qwen3.6',
+              collapsed: false,
+              items: [
+                { text: 'Qwen3.6 Model Introduction', link: '/01-deploy/qwen36/qwen36_model' },
+                { text: 'FastFlowLM NPU Deployment', link: '/01-deploy/qwen36/fastflowlm-npu-deploy' },
+                { text: 'Lemonade GPU Deployment', link: '/01-deploy/qwen36/lemonade-gpu-deploy' },
+                { text: 'Lemonade NPU Deployment', link: '/01-deploy/qwen36/lemonade-npu-deploy' }
+              ]
+            },
+            {
               text: 'Gemma4',
               collapsed: false,
               items: [
@@ -361,7 +393,11 @@ const enSidebar: DefaultTheme.Sidebar = {
                 { text: 'LM Studio Deployment', link: '/01-deploy/gemma4/lm-studio-rocm7-deploy' },
                 { text: 'vLLM Deployment', link: '/01-deploy/gemma4/vllm-rocm7-deploy' },
                 { text: 'Ollama Deployment', link: '/01-deploy/gemma4/ollama-rocm7-deploy' },
-                { text: 'llama.cpp Deployment', link: '/01-deploy/gemma4/llamacpp-rocm7-deploy' }
+                { text: 'llama.cpp Deployment', link: '/01-deploy/gemma4/llamacpp-rocm7-deploy' },
+                { text: 'FastFlowLM NPU Deployment', link: '/01-deploy/gemma4/fastflowlm-npu-deploy' },
+                { text: 'Lemonade GPU Deployment', link: '/01-deploy/gemma4/lemonade-gpu-deploy' },
+                { text: 'Lemonade NPU Deployment', link: '/01-deploy/gemma4/lemonade-npu-deploy' },
+                { text: 'FastFlowLM NPU Results', link: '/01-deploy/gemma4/fastflowlm-npu-results' }
               ]
             },
             {

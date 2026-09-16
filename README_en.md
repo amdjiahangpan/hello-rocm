@@ -41,7 +41,7 @@
 
 &emsp;&emsp;**At its core, this project is a collection of hands-on tutorials** so students and practitioners can learn AMD ROCm in a structured way. **Anyone can open an issue or submit a PR**—we build and maintain this together.
 
-> &emsp;&emsp;***Recommended path: Start with [00-Environment](./docs/en/00-environment/index.md) (ROCm + PyTorch + **uv**), then move to deployment and fine-tuning, and finally explore operator optimization and GPU programming. Once your environment is set up, LM Studio or vLLM is a great first deployment to try.***
+> &emsp;&emsp;***Recommended path: Start with [00-Environment](./docs/en/00-environment/index.md) (ROCm + PyTorch + **uv**). Ryzen AI users who want NPU should also finish [FastFlowLM](./docs/en/00-environment/fastflowlm.md) / [Lemonade](./docs/en/00-environment/lemonade.md). Then move to deployment and fine-tuning, and finally explore operator optimization and GPU programming. Once your environment is set up, LM Studio, vLLM, or FastFlowLM is a great first deployment to try.***
 
 ### hello-rocm Skill: put this project inside your AI coding assistant
 
@@ -51,7 +51,7 @@
 Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place (e.g., .claude/skills, .cursor/skills, or .agents/skills), then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
 ```
 
-&emsp;&emsp;Example questions: Can my AMD GPU run ROCm? What's the fastest way to get a local LLM running? How do I install vLLM / Ollama / llama.cpp on ROCm? Why is `torch.cuda.is_available()` returning False? See the [hello-rocm Skill guide](./docs/en/04-references/index.md#hello-rocm-skill) for more.
+&emsp;&emsp;Example questions: Can my AMD GPU run ROCm? What's the fastest way to get a local LLM running? How do I install vLLM / Ollama / llama.cpp / FastFlowLM / Lemonade on ROCm or NPU? Why is `torch.cuda.is_available()` returning False? See the [hello-rocm Skill guide](./docs/en/04-references/index.md#hello-rocm-skill) for more.
 
 ### Latest updates
 
@@ -106,6 +106,19 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     </td>
   </tr>
   <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/en/01-deploy/qwen36/qwen36_model.md">Qwen3.6 overview</a><br>
+      • <a href="./docs/en/01-deploy/qwen36/fastflowlm-npu-deploy.md">FastFlowLM NPU</a><br>
+      • <a href="./docs/en/01-deploy/qwen36/lemonade-gpu-deploy.md">Lemonade GPU</a><br>
+      • <a href="./docs/en/01-deploy/qwen36/lemonade-npu-deploy.md">Lemonade NPU</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
     <td colspan="2" align="center" style="border: none !important;"><strong>Gemma4</strong></td>
   </tr>
   <tr>
@@ -115,6 +128,9 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
       • <a href="./docs/en/01-deploy/gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
       • <a href="./docs/en/01-deploy/gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
       • <a href="./docs/en/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="./docs/en/01-deploy/gemma4/fastflowlm-npu-deploy.md">FastFlowLM NPU</a><br>
+      • <a href="./docs/en/01-deploy/gemma4/lemonade-gpu-deploy.md">Lemonade GPU</a><br>
+      • <a href="./docs/en/01-deploy/gemma4/lemonade-npu-deploy.md">Lemonade NPU</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
       • <a href="./src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 E4B LoRA fine-tuning (ModelScope, single GPU, Notebook)</a><br>
@@ -247,7 +263,9 @@ hello-rocm/
       • <a href="./docs/en/00-environment/rocm-gpu-architecture-table.md">GPU architecture & pip index map</a><br>
       • Windows 11: drivers, security prerequisites, install flow<br>
       • Ubuntu 24.04: uv-based install and optional one-liner script<br>
-      • Verification, uninstall, and switching GPU targets
+      • Verification, uninstall, and switching GPU targets<br>
+      • <a href="./docs/en/00-environment/xdna2-npu.md">Ryzen AI XDNA2 hardware</a><br>
+      • <a href="./docs/en/00-environment/fastflowlm.md">FastFlowLM environment</a> · <a href="./docs/en/00-environment/lemonade.md">Lemonade environment</a>
     </td>
   </tr>
 </table>
@@ -267,6 +285,8 @@ hello-rocm/
       • vLLM from scratch<br>
       • Ollama from scratch<br>
       • llama.cpp from scratch<br>
+      • FastFlowLM NPU from scratch<br>
+      • Lemonade from scratch<br>
       • ATOM from scratch
     </td>
   </tr>

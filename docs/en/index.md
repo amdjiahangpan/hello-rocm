@@ -24,7 +24,7 @@ features:
     details: Set up ROCm 10.0.0, PyTorch 2.13, and uv first so deployment, fine-tuning, and operator optimization tutorials share the same foundation.
     link: /00-environment/
   - title: LLM deployment
-    details: Deploy models on AMD GPUs with LM Studio, vLLM, Ollama, llama.cpp, and related ROCm workflows.
+    details: Deploy models on AMD GPUs with LM Studio, vLLM, Ollama, llama.cpp, plus FastFlowLM / Lemonade on Ryzen AI (NPU + GPU).
     link: /01-deploy/
   - title: LLM fine-tuning
     details: Follow ROCm fine-tuning examples for models such as Qwen3 and Gemma4.
@@ -42,8 +42,8 @@ features:
 
 ## Recommended Path
 
-1. Read [Environment](/00-environment/) first and finish the ROCm, PyTorch, and Python toolchain setup.
-2. Move to [Deploy](/01-deploy/) and validate your environment with LM Studio, vLLM, or another inference workflow.
+1. Read [Environment](/00-environment/) first and finish the ROCm, PyTorch, and Python toolchain setup. For Ryzen AI NPU, also complete [FastFlowLM](/00-environment/fastflowlm) / [Lemonade](/00-environment/lemonade).
+2. Move to [Deploy](/01-deploy/) and validate your environment with LM Studio, vLLM, or FastFlowLM.
 3. Continue with [Fine-tune](/02-fine-tune/) to understand LoRA fine-tuning on ROCm.
 4. Explore [Operator Optimization](/03-infra/) if you want to go deeper into low-level performance and operator development.
 5. Check [AMD Practice](/05-amd-yes/) when you need complete project examples.
@@ -52,8 +52,8 @@ features:
 
 | Section | Content |
 | --- | --- |
-| [Environment](/00-environment/) | ROCm installation, configuration, validation, and GPU architecture references |
-| [Deploy](/01-deploy/) | Multi-framework local deployment for models such as Qwen3 and Gemma4 |
+| [Environment](/00-environment/) | ROCm installation, configuration, validation, GPU architecture, plus FastFlowLM / Lemonade NPU |
+| [Deploy](/01-deploy/) | Multi-framework local deployment for models such as Qwen3, Gemma4, and Qwen3.6 (including NPU) |
 | [Fine-tune](/02-fine-tune/) | LLM fine-tuning notes and examples on ROCm |
 | [Operator Optimization](/03-infra/) | AMD AI hardware, ROCm software stack, HIP operators, and PyTorch custom operators |
 | [References](/04-references/) | ROCm and AMD AI ecosystem resources |

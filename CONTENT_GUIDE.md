@@ -25,6 +25,9 @@
 - `vllm-rocm7-deploy.md`：vLLM 部署。
 - `ollama-rocm7-deploy.md`：Ollama 部署。
 - `llamacpp-rocm7-deploy.md`：llama.cpp 部署。
+- `fastflowlm-npu-deploy.md`：FastFlowLM（XDNA2 NPU）部署。
+- `lemonade-gpu-deploy.md`：Lemonade GPU（llamacpp）部署。
+- `lemonade-npu-deploy.md`：Lemonade NPU（底层 FastFlowLM）部署。
 
 ## 2. 文档结构（与现有教程对齐）
 

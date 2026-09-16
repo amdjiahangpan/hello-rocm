@@ -33,7 +33,7 @@ features:
     details: 先完成 ROCm 10.0.0、PyTorch 2.13 与 uv 环境配置，为后续部署、微调和算子实践建立统一前置条件。
     link: /zh/00-environment/
   - title: 大模型部署
-    details: 覆盖 LM Studio、vLLM、Ollama、llama.cpp 等常见框架在 AMD GPU 上的部署流程。
+    details: 覆盖 LM Studio、vLLM、Ollama、llama.cpp，以及 Ryzen AI 上的 FastFlowLM / Lemonade（NPU + GPU）。
     link: /zh/01-deploy/
   - title: 大模型微调
     details: 以 Qwen3、Gemma4 等模型为例，记录 ROCm 环境下的 LoRA 微调实践。
@@ -51,8 +51,8 @@ features:
 
 ## 推荐学习路径
 
-1. 先阅读 [基础环境](/zh/00-environment/)，完成 ROCm、PyTorch 与 Python 工具链配置。
-2. 再进入 [大模型部署](/zh/01-deploy/)，从 LM Studio 或 vLLM 等推理部署流程开始验证环境。
+1. 先阅读 [基础环境](/zh/00-environment/)，完成 ROCm、PyTorch 与 Python 工具链配置。Ryzen AI 要用 NPU 时，再完成 [FastFlowLM](/zh/00-environment/fastflowlm) / [Lemonade](/zh/00-environment/lemonade)。
+2. 再进入 [大模型部署](/zh/01-deploy/)，从 LM Studio、vLLM 或 FastFlowLM 等推理部署流程开始验证环境。
 3. 环境稳定后继续阅读 [大模型微调](/zh/02-fine-tune/)，了解 ROCm 上的 LoRA 微调流程。
 4. 如果希望深入底层性能与扩展能力，可以继续学习 [算子优化](/zh/03-infra/)。
 5. 需要完整项目样例时，查看 [AMD 实践案例](/zh/05-amd-yes/)。
@@ -61,8 +61,8 @@ features:
 
 | 模块 | 内容 |
 | --- | --- |
-| [基础环境](/zh/00-environment/) | ROCm 基础环境安装、配置、校验与 GPU 架构对照 |
-| [大模型部署](/zh/01-deploy/) | Qwen3、Gemma4 等模型的多框架本地部署 |
+| [基础环境](/zh/00-environment/) | ROCm 基础环境安装、配置、校验与 GPU 架构对照；Ryzen AI 另含 FastFlowLM / Lemonade NPU |
+| [大模型部署](/zh/01-deploy/) | Qwen3、Gemma4、Qwen3.6 等模型的多框架本地部署（含 NPU） |
 | [大模型微调](/zh/02-fine-tune/) | ROCm 环境下的大模型微调记录 |
 | [算子优化](/zh/03-infra/) | AMD AI 硬件、ROCm 软件栈、HIP 算子与 PyTorch 自定义算子 |
 | [参考资料](/zh/04-references/) | ROCm 与 AMD AI 生态相关资料 |

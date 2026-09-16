@@ -25,6 +25,9 @@ Common deployment tutorial filenames should match existing Qwen3 / Gemma4 tutori
 - `vllm-rocm7-deploy.md`: vLLM deployment.
 - `ollama-rocm7-deploy.md`: Ollama deployment.
 - `llamacpp-rocm7-deploy.md`: llama.cpp deployment.
+- `fastflowlm-npu-deploy.md`: FastFlowLM (XDNA2 NPU) deployment.
+- `lemonade-gpu-deploy.md`: Lemonade GPU (llamacpp) deployment.
+- `lemonade-npu-deploy.md`: Lemonade NPU (FastFlowLM underneath) deployment.
 
 ## 2. Document Structure
 

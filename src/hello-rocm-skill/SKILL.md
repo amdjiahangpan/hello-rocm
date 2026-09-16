@@ -3,6 +3,7 @@ name: hello-rocm
 description: >-
   hello-rocm 开源教程项目：AMD ROCm 上大模型环境、部署、微调与算子/Infra。
   当用户询问 AMD GPU、ROCm、Windows/Linux 上本地 LLM 推理与部署、vLLM/Ollama/LM Studio、
+  FastFlowLM/Lemonade/XDNA2 NPU、
   LoRA 微调、HIP/RCCL、hello-rocm 仓库结构、学习顺序或贡献规范时，必须加载并遵循本 Skill。
 ---
 
@@ -24,7 +25,7 @@ description: >-
 | 目录 | 含义 |
 |:---|:---|
 | `00-Environment/` | **统一环境基线**：ROCm、驱动、Windows/Ubuntu、`uv` + PyTorch 等；**几乎所有后续章节的前置** |
-| `01-Deploy/` | **部署推理**：LM Studio、vLLM、Ollama、llama.cpp 等；按 **模型系列** 分子目录（如 `models/Qwen3/`、`models/Gemma4/`） |
+| `01-Deploy/` | **部署推理**：LM Studio、vLLM、Ollama、llama.cpp、FastFlowLM、Lemonade 等；按 **模型系列** 分子目录（如 `models/Qwen3/`、`models/Gemma4/`、`models/Qwen3.6/`） |
 | `02-Fine-tune/` | **微调**：LoRA 等实践与 Notebook，同样按模型分子目录 |
 | `03-Infra/` | **算子/基础设施**：HIPify、BLAS/DNN、NCCL→RCCL、Nsight→Rocprof 等迁移与优化 |
 | `04-References/` | **官方与社区参考链接**汇总 |
@@ -44,8 +45,9 @@ description: >-
 
 2. **再推理部署（模型推理入门）**  
    - 入口：**`docs/zh/01-deploy/index.md`** / **`docs/en/01-deploy/index.md`**。  
-   - **零基础快速跑起来**：可在环境就绪后从 **LM Studio** 或 **vLLM** 入手（与 README「初学者」建议一致）。  
-   - 具体模型请进 **`docs/zh/01-deploy/<系列名>/`** / **`docs/en/01-deploy/<系列名>/`**（如 `qwen3`、`gemma4`），按同目录下的 `*-rocm7-deploy.md` 分框架操作。
+   - **零基础快速跑起来**：可在环境就绪后从 **LM Studio**、**vLLM** 或 **FastFlowLM（NPU）** 入手（与 README「初学者」建议一致）。  
+   - Ryzen AI NPU：先读 **`docs/zh/00-environment/xdna2-npu.md`** / **`docs/en/00-environment/xdna2-npu.md`**，再 **`fastflowlm.md`** / **`lemonade.md`**。  
+   - 具体模型请进 **`docs/zh/01-deploy/<系列名>/`** / **`docs/en/01-deploy/<系列名>/`**（如 `qwen3`、`gemma4`、`qwen36`），GPU 框架看 `*-rocm7-deploy.md`，NPU 看 `fastflowlm-npu-deploy.md` / `lemonade-*-deploy.md`。
 
 3. **然后微调**  
    - 入口：**`docs/zh/02-fine-tune/index.md`** / **`docs/en/02-fine-tune/index.md`**，按对应模型子目录中的 Notebook/文档操作（含 SwanLab 等记录方式）。

@@ -17,14 +17,15 @@
 
 &emsp;&emsp;Since ROCm 7.10.0, ROCm supports seamless installation in Python virtual environments just like CUDA, significantly lowering the barrier for LLM deployment on AMD GPUs.
 
-&emsp;&emsp;This module uses **Google Gemma 4** (`gemma-4-E4B-it` primarily) as the example model by default, and also provides parallel tutorials for **Qwen3** as a reference. The directory structure is as follows:
+&emsp;&emsp;This module uses **Google Gemma 4** (`gemma-4-E4B-it` primarily) as the example model by default, and also provides parallel tutorials for **Qwen3 / Qwen3.5 / Qwen3.6**. The Ryzen AI **XDNA2 NPU** path uses FastFlowLM and Lemonade; environment pages live in [00-Environment](/00-environment/). The directory structure is as follows:
 
 ```
 01-Deploy/
 └── models/
     ├── Gemma4/           # Deployment tutorials with Gemma 4 as the primary model (recommended)
     ├── Qwen3/            # Qwen3 series deployment tutorials (reference/comparison)
-    └── Qwen3.5/          # Qwen3.5 series deployment tutorials (new architecture reference)
+    ├── Qwen3.5/          # Qwen3.5 series deployment tutorials (new architecture reference)
+    └── Qwen3.6/          # Qwen3.6 FastFlowLM / Lemonade
 ```
 
 ## Tutorial List
@@ -106,12 +107,39 @@
 
 ---
 
+### FastFlowLM NPU Deployment from Scratch
+
+&emsp;&emsp;FastFlowLM (`flm`) is a native runtime for AMD **XDNA2 NPUs** and uses NPU2 weights rather than GGUF. This tutorial serves **Gemma 4 E4B-it** as an OpenAI-compatible API on Ubuntu 24.04 (default **8219**) and includes 1k–32k measurements. Qwen3.6-35B-A3B is the larger MoE counterpart.
+
+- **Target Audience**: Ryzen AI MAX / AI 300 users with XDNA2 who want on-device NPU inference
+- **Difficulty Level**: ⭐⭐
+- **Estimated Time**: download depends on the network; Gemma 4 smoke test ~1 minute after load
+
+📖 [Start the FastFlowLM Tutorial (Gemma4)](/en/01-deploy/gemma4/fastflowlm-npu-deploy.md)  
+📎 Reference: [Qwen3.6 Version](/en/01-deploy/qwen36/fastflowlm-npu-deploy.md) · [NPU results](/en/01-deploy/gemma4/fastflowlm-npu-results.md) · [Environment](/00-environment/fastflowlm.md)
+
+---
+
+### Lemonade LLM Deployment from Scratch
+
+&emsp;&emsp;Lemonade Server provides a Web UI and OpenAI-compatible API (default **13305**). GPU uses llama.cpp (this tutorial validated `llamacpp:vulkan` on kernel 6.17); NPU is still FastFlowLM underneath. Because systemd `lemond` sets ProtectHome, **the stable NPU path is native FastFlowLM on 8219**.
+
+- **Target Audience**: users who want one GPU port plus a Web UI
+- **Difficulty Level**: ⭐⭐
+- **Estimated Time**: 1 hour including environment setup
+
+📖 [Start the Lemonade GPU Tutorial (Gemma4)](/en/01-deploy/gemma4/lemonade-gpu-deploy.md)  
+📎 Reference: [Lemonade NPU (Gemma4)](/en/01-deploy/gemma4/lemonade-npu-deploy.md) · [Qwen3.6 GPU](/en/01-deploy/qwen36/lemonade-gpu-deploy.md) · [Environment](/00-environment/lemonade.md)
+
+---
+
 ## Requirements
 
 ### Hardware Requirements
 
 - AMD GPU (ROCm-supported GPUs such as RX 7000 / 9000 series, Ryzen AI MAX / AI 300, Instinct MI series, etc.)
 - At least 8GB VRAM recommended (Gemma 4 E4B Q4_K_M quantized version can run with 8GB VRAM; for native bfloat16 inference or larger models, please refer to the VRAM recommendations in the corresponding tutorials)
+- FastFlowLM / Lemonade NPU additionally requires **XDNA2** (see [hardware](/00-environment/xdna2-npu.md))
 
 ### Software Requirements
 
@@ -150,6 +178,8 @@ Gemma series models require you to first click **Agree & Access** on the corresp
 - [vLLM Official Documentation](https://docs.vllm.ai/)
 - [Ollama Official Documentation](https://docs.ollama.com/)
 - [llama.cpp Repository](https://github.com/ggerganov/llama.cpp)
+- [FastFlowLM](https://fastflowlm.com/docs/)
+- [Lemonade Server](https://lemonade-server.ai/)
 - [Hugging Face Gemma 4 Model Collection](https://huggingface.co/collections/google/gemma-4)
 
 ---

@@ -216,3 +216,20 @@ Gemma 4 is among the best open-source multimodal models available today. Its cor
 > - [Hugging Face Blog - Welcome Gemma 4](https://huggingface.co/blog/gemma4)
 > - [Google Blog - Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
 > - [Hugging Face Gemma 4 Model Collection](https://huggingface.co/collections/google/gemma-4)
+
+---
+
+### 9. Which size on XDNA2 NPU
+
+GPU tutorials use GGUF / Hugging Face weights. NPU requires FastFlowLM **NPU2** weights (`model.q4nx`). Do not feed `Q4_K_M.gguf` to `flm`.
+
+| FLM tag | Base | Quant | Resident | This tutorial |
+|:---|:---|:---|:---|:---|
+| `gemma4-it:e2b` | gemma-4-E2B-it | Q4_1 | ~6 GiB | Smaller |
+| **`gemma4-it:e4b`** | gemma-4-E4B-it | **Q4_1** | **~9 GiB** | **Primary** |
+| `gemma4-it:12b` | gemma-4-12B-it | Q4_0 | ~9.4 GiB | Larger text |
+
+E4B matches the GPU primary model on this chapter, so you can compare **NPU vs GPU** on one Strix Halo. Native image + audio; video from the original model card does not imply the NPU runtime is wired. Fine-tuning stays on GPU / [02-Fine-tune](/02-fine-tune/).
+
+Deploy: [FastFlowLM](./fastflowlm-npu-deploy.md) · [Lemonade GPU](./lemonade-gpu-deploy.md) · [Lemonade NPU](./lemonade-npu-deploy.md)
+

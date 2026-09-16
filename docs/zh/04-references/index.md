@@ -24,6 +24,7 @@ hello-rocm Skill 是本项目内置的 AI 助手导航能力。它会把本项�
 | 我的 GPU 属于什么架构、对应哪个 gfx？ | `docs/zh/00-environment/rocm-gpu-architecture-table.md` |
 | 我想最快跑通第一个模型 | `src/hello-rocm-skill/references/quick-deploy/SKILL.md` |
 | PyTorch / vLLM / Ollama / llama.cpp 在 ROCm 上怎么装？ | 本页“框架与推理服务” |
+| FastFlowLM / Lemonade / XDNA2 怎么装？ | [FastFlowLM 环境](../00-environment/fastflowlm.md) · [Lemonade 环境](../00-environment/lemonade.md) |
 | ROCm / PyTorch / HIP 报错怎么排？ | `src/hello-rocm-skill/references/troubleshooting/SKILL.md` |
 | 该从哪个章节开始学习？ | README 与各章节 `index.md` |
 
@@ -153,6 +154,8 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | 推理服务 | Ollama | [Ollama GPU docs](https://github.com/ollama/ollama/blob/main/docs/gpu.md) | [AMD ROCm Blog - Ollama](https://rocm.blogs.amd.com/search.html?q=Ollama) | [Ollama 部署教程](../01-deploy/index.md) |
 | 推理服务 | llama.cpp | [llama.cpp build docs - HIP/ROCm](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md) | [AMD ROCm Blog - llama.cpp](https://rocm.blogs.amd.com/search.html?q=llama.cpp) | [llama.cpp 部署教程](../01-deploy/index.md) |
 | 推理服务 | LM Studio | [LM Studio GPU docs](https://lmstudio.ai/docs/app/advanced/gpu) | [AMD ROCm Blog - LM Studio](https://rocm.blogs.amd.com/search.html?q=LM%20Studio) | [LM Studio 部署教程](../01-deploy/index.md) |
+| NPU 运行时 | FastFlowLM | [FastFlowLM Linux](https://fastflowlm.com/docs/install_lin/) | [Lemonade Linux + FLM](https://lemonade-server.ai/flm_npu_linux.html) | [FastFlowLM 部署](../01-deploy/gemma4/fastflowlm-npu-deploy.md) |
+| 推理服务 | Lemonade | [Ubuntu 安装](https://lemonade-server.ai/docs/guide/install/ubuntu/) | [Lemonade GitHub](https://github.com/lemonade-sdk/lemonade) | [Lemonade 部署](../01-deploy/gemma4/lemonade-gpu-deploy.md) |
 | 推理运行时 | ONNX Runtime | [Install ONNX Runtime for ROCm](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/3rd-party/onnxruntime-install.html) | [AMD ROCm Blog - ONNX Runtime](https://rocm.blogs.amd.com/search.html?q=ONNX%20Runtime) | [环境安装](../00-environment/index.md) |
 
 ### 库文档

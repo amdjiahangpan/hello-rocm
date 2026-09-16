@@ -24,6 +24,7 @@ The hello-rocm Skill is the AI-assistant navigation layer built into this projec
 | Which architecture / gfx target does my GPU use? | `docs/en/00-environment/rocm-gpu-architecture-table.md` |
 | What is the fastest path to run my first model? | `src/hello-rocm-skill/references/quick-deploy/SKILL.md` |
 | How do I install PyTorch / vLLM / Ollama / llama.cpp on ROCm? | The “Frameworks and Inference Services” table on this page |
+| How do I install FastFlowLM / Lemonade / XDNA2? | [FastFlowLM environment](../00-environment/fastflowlm.md) · [Lemonade environment](../00-environment/lemonade.md) |
 | How do I debug ROCm / PyTorch / HIP errors? | `src/hello-rocm-skill/references/troubleshooting/SKILL.md` |
 | Which chapter should I read first? | README and chapter `index.md` files |
 
@@ -153,6 +154,8 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | Inference service | Ollama | [Ollama GPU docs](https://github.com/ollama/ollama/blob/main/docs/gpu.md) | [AMD ROCm Blog - Ollama](https://rocm.blogs.amd.com/search.html?q=Ollama) | [Ollama deployment tutorials](../01-deploy/index.md) |
 | Inference service | llama.cpp | [llama.cpp build docs - HIP/ROCm](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md) | [AMD ROCm Blog - llama.cpp](https://rocm.blogs.amd.com/search.html?q=llama.cpp) | [llama.cpp deployment tutorials](../01-deploy/index.md) |
 | Inference service | LM Studio | [LM Studio GPU docs](https://lmstudio.ai/docs/app/advanced/gpu) | [AMD ROCm Blog - LM Studio](https://rocm.blogs.amd.com/search.html?q=LM%20Studio) | [LM Studio deployment tutorials](../01-deploy/index.md) |
+| NPU runtime | FastFlowLM | [FastFlowLM Linux](https://fastflowlm.com/docs/install_lin/) | [Lemonade Linux + FLM](https://lemonade-server.ai/flm_npu_linux.html) | [FastFlowLM deploy](../01-deploy/gemma4/fastflowlm-npu-deploy.md) |
+| Inference service | Lemonade | [Ubuntu install](https://lemonade-server.ai/docs/guide/install/ubuntu/) | [Lemonade GitHub](https://github.com/lemonade-sdk/lemonade) | [Lemonade deploy](../01-deploy/gemma4/lemonade-gpu-deploy.md) |
 | Inference runtime | ONNX Runtime | [Install ONNX Runtime for ROCm](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/3rd-party/onnxruntime-install.html) | [AMD ROCm Blog - ONNX Runtime](https://rocm.blogs.amd.com/search.html?q=ONNX%20Runtime) | [Environment setup](../00-environment/index.md) |
 
 ### Library Documentation
